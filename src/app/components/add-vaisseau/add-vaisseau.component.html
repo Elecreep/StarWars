@@ -1,0 +1,85 @@
+<main role="main">
+
+    <div class="container">
+
+    <h1 class="text-center starwarsfont text-warning">Ajouter un vaisseau</h1>
+        <div class="row">
+
+            <div class="col-md-12">
+                <div class="card text-light border-light p-5" style="height: auto; background-color: #1e1d1d">
+
+                    <form #vaisseauForm="ngForm" (ngSubmit)="addVaisseau()">
+
+
+
+
+                        <div class="form-row">
+                            <div class="col">
+                                <label>Nom du vaisseau</label>
+                                <input type="text" class="form-control" [ngClass]="{'is-invalid': !nom.valid}" name="nom" required [(ngModel)]="newVaisseau.nom" #nom="ngModel">
+                                <div class="invalid-feedback">Veuillez entrez un nom</div>
+                            </div>
+
+                            <div class="col">
+                                <label>Nom du créateur</label>
+                                <input type="text" class="form-control" [ngClass]="{'is-invalid': !creator.valid}" name="creator" required [(ngModel)]="newVaisseau.creator" #creator="ngModel">
+                                <div class="invalid-feedback">Veuillez entrez un nom</div>
+                            </div>
+
+                        </div>
+
+                        <div class="form-group ">
+                            <label>Description</label>
+                            <textarea class="form-control" [ngClass]="{'is-invalid': !description.valid}" name="description" rows="8" cols="80" required [(ngModel)]="newVaisseau.description" #description="ngModel"></textarea>
+                            <div class="invalid-feedback">Veuillez entrez une description</div>
+                        </div>
+
+                        <!-- Ajouter ici IMAGE -->
+                            <div class="file-upload">
+                              <button class="file-upload-btn" type="button">Ajouter une image</button>
+
+                              <div class="image-upload-wrap">
+                                <input class="file-upload-input" type='file' accept="image/*" />
+                                <div class="drag-text">
+                                  <h3>Glissez-déposez une image</h3>
+                                </div>
+                              </div>
+                              <div class="file-upload-content">
+                                <img class="file-upload-image" src="#" alt="your image" />
+                                <div class="image-title-wrap">
+                                  <button type="button" onclick="removeUpload()" class="remove-image">Supprimer <span class="image-title"></span></button>
+                                </div>
+                              </div>
+                            </div>
+
+                        <div class="form-row">
+                            <div class="col">
+                                <label>Le modèle du vaisseau</label>
+                                <input type="text" class="form-control" [ngClass]="{'is-invalid': !model.valid}" name="model" required [(ngModel)]="newVaisseau.model" #model="ngModel">
+                                <div class="invalid-feedback">Veuillez entrez un modèle</div>
+                            </div>
+
+                            <div class="col">
+                                <label>Nombre de passager max</label>
+                                <input type="text" class="form-control" [ngClass]="{'is-invalid': !nbrPassager.valid}" name="nbrPassager" required [(ngModel)]="newVaisseau.nbrPassager" #nbrPassager="ngModel">
+                                <div class="invalid-feedback">Veuillez entrez un nombre de passager max</div>
+                            </div>
+
+                        </div>
+
+                        <input [disabled]="!vaisseauForm.valid" type="submit" class="btn btn-warning mt-3 btn-block" value="Ajouter">
+
+                    </form>
+
+                    <!-- Pour afficher une message d'erreur :
+                    <div [hidden]="monElement.valid">
+                        <p>monElement doit être rempli !</p>
+                    </div> -->
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+</main>

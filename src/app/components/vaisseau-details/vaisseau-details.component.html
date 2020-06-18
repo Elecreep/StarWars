@@ -1,0 +1,35 @@
+<main role="main">
+
+    <div class="container">
+
+    <h1 class="text-center starwarsfont text-warning">{{ vaisseau.nom }}</h1>
+        <div class="row">
+
+            <div class="col-md-12">
+                <div class="card text-light border-light" style="height: 30rem; background-color: #1e1d1d">
+                    <p class="m-3"><a routerLink="/vehicules" class="text-light">Vehicule</a> / {{ vaisseau.nom }}</p>
+                    <div class="row">
+                        <div class="col-6">
+                            <img class="img-top m-3" src="{{ vaisseau.image }}" alt="Card image cap">
+                            <a routerLink="/vehicules" class="btn btn-warning m-3">Voir d'autres vaisseaux</a>
+                        </div>
+                        <div class="col-6">
+                            <div class="card-body">
+                                <h5 class="card-title">{{ vaisseau.nom }}</h5>
+                                <p class="card-text">{{ vaisseau.description }}</p>
+                                <hr>
+                                <p><b>Model</b> : {{ vaisseau.model }}</p>
+                                <p><b>Créateur</b> : {{ vaisseau.creator }}</p>
+                                <p><b>Nombre de passager</b> : {{ vaisseau.nbrPassager }}</p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+</main>

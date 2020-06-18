@@ -1,0 +1,60 @@
+
+.character-right
+{
+    position:fixed;
+    right:0;
+    bottom:0;
+    margin:0;
+    animation-duration: 2000ms;
+    animation-iteration-count: infinite;
+}
+
+.anime-right
+{
+    animation-name: character-right-anime;
+}
+
+.character-left
+{
+    position:fixed;
+    left:0;
+    bottom:0;
+    margin:0;
+    animation-duration: 2000ms;
+    animation-iteration-count: infinite;
+}
+
+.anime-left
+{
+    animation-name: character-left-anime;
+}
+
+@keyframes character-left-anime
+{
+  0% { left: 0; bottom:0; }
+  10% { left: 500px; bottom:0; }
+  10% { left: 600px; bottom:100px; }
+  30% { left: 420px; bottom:0; }
+  40% { left: 520px; bottom:0; }
+  50% { left: 220px; bottom:200px; }
+  60% { left: 320px; bottom:180px; }
+  70% { left: 120px; bottom:0; }
+  80% { left: 320px; bottom:100px; }
+  90% { left: 300px; bottom:0; }
+  100% { left: 0; bottom:0; }
+}
+
+@keyframes character-right-anime
+{
+  0% { right: 0; bottom:0; }
+  10% { right: 600px; bottom:0; }
+  10% { right: 500px; bottom:100px; }
+  30% { right: 820px; bottom:0; }
+  40% { right: 620px; bottom:0; }
+  50% { right: 920px; bottom:200px; }
+  60% { right: 820px; bottom:180px; }
+  70% { right: 1020px; bottom:0; }
+  80% { right: 720px; bottom:100px; }
+  90% { right: 600px; bottom:0; }
+  100% { right: 0; bottom:0; }
+}

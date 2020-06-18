@@ -1,0 +1,22 @@
+<app-menu></app-menu>
+
+<div (konami)="konami()"></div>
+
+
+
+<router-outlet></router-outlet>
+<div [ngClass]="{'anime-right': battle}" class="character-right">
+    <img src="../assets/images/characters/luc.png" alt="">
+</div>
+
+<div [ngClass]="{'anime-left': battle}" class="character-left">
+    <img src="../assets/images/characters/darkvador.webp" alt="">
+</div>
+
+<div *ngIf="battle" class="character-right anime-right">
+    <img src="../assets/images/characters/slash_1.gif" alt="">
+</div>
+
+<div *ngIf="battle" class="character-left anime-left">
+    <img src="../assets/images/characters/slash_2.gif" alt="">
+</div>

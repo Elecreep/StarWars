@@ -1,0 +1,23 @@
+/* You can add global styles to this file, and also import other style files */
+
+body
+{
+    background-image: url('./assets/images/background.webp');
+    background-size: cover;
+}
+
+@font-face {
+ font-family: "Starjedi";
+ src: url("./assets/fonts/Starjedi.ttf");
+}
+
+h1, h3
+{
+    padding: 15px,inherit;
+    color: white;
+}
+
+.starwarsfont
+{
+    font-family: "Starjedi", serif;
+}

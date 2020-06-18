@@ -1,0 +1,36 @@
+<main role="main">
+
+    <div class="container">
+
+    <h1 class="text-center starwarsfont text-warning">{{ planet.nom }}</h1>
+        <div class="row">
+
+            <div class="col-md-12">
+                <div class="card text-light border-light" style="height: 30rem; background-color: #1e1d1d">
+                    <p class="m-3"><a routerLink="/planets" class="text-light">Planets</a> / {{ planet.nom }}</p>
+                    <div class="row">
+                        <div class="col-6">
+                            <img class="m-3 img-fluid" src="{{ planet.image }}" alt="Card image cap">
+                            <a routerLink="/planets" class="btn btn-warning m-3">Voir d'autres planètes</a>
+                        </div>
+                        <div class="col-6">
+                            <div class="card-body">
+                                <h5 class="card-title">{{ planet.nom }}</h5>
+                                <p class="card-text">{{ planet.description }}</p>
+                                <hr>
+                                <p><b>Population</b> : {{ planet.nbrHabitant }}</p>
+                                <p><b>Affiliation</b> : {{ planet.faction }}</p>
+                                <!-- <button (click)="yeahBoi()" type="button" name="button">Yeah</button>
+                                <h2>test</h2> -->
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+</main>

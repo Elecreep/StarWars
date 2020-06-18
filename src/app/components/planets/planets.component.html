@@ -1,0 +1,26 @@
+<main role="main">
+
+    <div class="container">
+
+    <h1 class="text-center starwarsfont text-warning">Mes Planètes</h1>
+        <div class="row">
+                <a [routerLink]="['/planets/add']" class="btn btn-warning btn-block m-3"><h3>Ajouter une planète</h3></a>
+                <div class="col-md-4 mt-2" *ngFor="let element of planets">
+                    <div class="card text-light border-light" style="height: 33rem; background-color: #1e1d1d">
+                        <img class="card-img-top" src="{{ element.image }}" alt="Card image cap">
+                        <div class="card-body">
+                        <h5 class="card-title">{{ element.nom }}</h5>
+                        <p class="card-text">{{ element.description }}</p>
+                        <hr>
+                        <p><b>Population</b> : {{ element.nbrHabitant }}</p>
+                        <p><b>Affiliation</b> : {{ element.faction }}</p>
+                        <a [routerLink]="['/planets', element.id]" class="btn btn-warning">En savoir plus</a>
+                        </div>
+                    </div>
+                </div>
+
+        </div>
+
+    </div>
+
+</main>
