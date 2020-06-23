@@ -14,6 +14,7 @@
                             <img class="m-3 img-fluid" src="{{ vaisseau.image }}" alt="Card image cap">
                             <a routerLink="/vehicules" class="btn btn-warning m-3">Voir d'autres vaisseaux</a><br>
                             <a class="btn btn-danger m-3" (click)="deleteVaisseau(vaisseau)"><img src="assets/images/delete.png" height="25px" class="m-1" alt="">Démanteler ce vaisseau !</a>
+                            <a [routerLink]="['/vehicules/edit', vaisseau.id]" class="btn btn-success m-3">Editer ce vaisseau</a>
                         </div>
                         <div class="col-6">
                             <div class="card-body">
