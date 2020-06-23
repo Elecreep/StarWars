@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { VaisseauService } from '../../services/vaisseau.service';
 import { Vaisseau } from '../../models/vaisseau';
+import { LoggerService } from '../../services/logger.service';
 
 @Component({
   selector: 'app-vehicules',
@@ -10,11 +11,12 @@ import { Vaisseau } from '../../models/vaisseau';
 export class VehiculesComponent implements OnInit {
 
     vaisseaux: Vaisseau[];
-    constructor(private vaisseauService: VaisseauService) { }
+    constructor(private vaisseauService: VaisseauService, private loggerService: LoggerService) { }
     // PlanetService = Nom de la class de mon service
 
     ngOnInit(): void {
       this.vaisseaux = this.vaisseauService.getAllVaisseau();
+      this.loggerService.message();
       // getAllVaisseau = ma fonction poour récup l'objet
     }
 

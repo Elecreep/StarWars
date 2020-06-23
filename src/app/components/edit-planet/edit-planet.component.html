@@ -2,36 +2,28 @@
 
     <div class="container">
 
-    <h1 class="text-center starwarsfont text-warning">Ajouter une planète</h1>
+    <h1 class="text-center starwarsfont text-warning">Modifier une planète</h1>
         <div class="row">
+
             <div class="col-md-12">
                 <div class="card text-light border-light p-5" style="height: auto; background-color: #1e1d1d">
 
-                    <form #planetForm="ngForm" (ngSubmit)="addPlanet()">
+                    <form #planetForm="ngForm" (ngSubmit)="editPlanet()">
 
 
                         <div class="form-group">
                             <label>Nom de la planète</label>
-                            <input type="text" class="form-control" [ngClass]="{'is-invalid': !nom.valid}" name="nom" required [(ngModel)]="newPlanet.nom" #nom="ngModel">
+                            <input type="text" class="form-control" [ngClass]="{'is-invalid': !nom.valid}" name="nom" required [(ngModel)]="planet.nom" #nom="ngModel">
                             <div class="invalid-feedback">Veuillez entrez un nom</div>
                         </div>
 
                         <div class="form-group ">
                             <label>Description</label>
-                            <textarea class="form-control" [ngClass]="{'is-invalid': !description.valid}" name="description" rows="8" cols="80" required [(ngModel)]="newPlanet.description" #description="ngModel"></textarea>
+                            <textarea class="form-control" [ngClass]="{'is-invalid': !description.valid}" name="description" rows="8" cols="80" required [(ngModel)]="planet.description" #description="ngModel"></textarea>
                             <div class="invalid-feedback">Veuillez entrez une description</div>
                         </div>
 
-                        <!-- Test upload Image -->
-                        <div class="form-group ">
-                            <div class="custom-file">
-                              <input type="file" class="custom-file-input" id="customFile" (change)="onFileChanged($event)">
-                              <label class="custom-file-label" for="customFile">Choisir une image</label>
-                            </div>
-                        </div>
-                        <!-- /Test upload Image -->
-
-
+                        <!-- Ajouter ici IMAGE -->
                             <div class="file-upload">
                               <button class="file-upload-btn" type="button">Ajouter une image</button>
 
@@ -53,18 +45,17 @@
                         <div class="form-row">
                             <div class="col">
                                 <label>Nombre d'habitant</label>
-                                <input type="text" class="form-control" [ngClass]="{'is-invalid': !nbrHabitant.valid}" name="nbrHabitant" required [(ngModel)]="newPlanet.nbrHabitant" #nbrHabitant="ngModel">
+                                <input type="text" class="form-control" [ngClass]="{'is-invalid': !nbrHabitant.valid}" name="nbrHabitant" required [(ngModel)]="planet.nbrHabitant" #nbrHabitant="ngModel">
                                 <div class="invalid-feedback">Veuillez entrez un nombre d'habitant</div>
                             </div>
-
                             <div class="col">
                                 <label>Faction</label>
-                                <input type="text" class="form-control" [ngClass]="{'is-invalid': !faction.valid}" name="faction" required [(ngModel)]="newPlanet.faction" #faction="ngModel" placeholder="Veuillez sélectionner une faction">
+                                <input type="text" class="form-control" [ngClass]="{'is-invalid': !faction.valid}" name="faction" required [(ngModel)]="planet.faction" #faction="ngModel" placeholder="Veuillez sélectionner une faction">
                                 <div class="invalid-feedback">Veuillez sélectionner une faction</div>
                             </div>
                         </div>
 
-                        <input [disabled]="!planetForm.valid" type="submit" class="btn btn-warning mt-3 btn-block" value="Ajouter">
+                        <input [disabled]="!planetForm.valid" type="submit" class="btn btn-warning mt-3 btn-block" value="Modifier">
 
                     </form>
 

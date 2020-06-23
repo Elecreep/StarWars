@@ -6,22 +6,30 @@
         <div class="row">
 
             <div class="col-md-12">
-                <div class="card text-light border-light" style="height: 30rem; background-color: #1e1d1d">
+                <div class="card text-light border-secondary" style="background-color: #1e1d1d">
+                    <p class="initiales starwarsfont">{{ planet.nom | initiale }}</p>
                     <p class="m-3"><a routerLink="/planets" class="text-light">Planets</a> / {{ planet.nom }}</p>
                     <div class="row">
                         <div class="col-6">
                             <img class="m-3 img-fluid" src="{{ planet.image }}" alt="Card image cap">
-                            <a routerLink="/planets" class="btn btn-warning m-3">Voir d'autres planètes</a>
+                            <a routerLink="/planets" class="btn btn-warning m-3">Voir d'autres planètes</a><br>
+                            <a class="btn btn-danger m-3" (click)="deletePlanet(planet)"><img src="assets/images/delete.png" height="25px" class="m-1" alt="">Détruire cette planète !</a>
+                            <a [routerLink]="['/planets/edit', planet.id]" class="btn btn-success m-3">Editer cette planète</a>
                         </div>
                         <div class="col-6">
                             <div class="card-body">
-                                <h5 class="card-title">{{ planet.nom }}</h5>
+                                <h5 class="card-title">{{ planet.nom | uppercase }}</h5>
                                 <p class="card-text">{{ planet.description }}</p>
                                 <hr>
                                 <p><b>Population</b> : {{ planet.nbrHabitant }}</p>
                                 <p><b>Affiliation</b> : {{ planet.faction }}</p>
                                 <!-- <button (click)="yeahBoi()" type="button" name="button">Yeah</button>
                                 <h2>test</h2> -->
+                                <hr>
+                                <p><b>Information confidentiels</b> : </p>
+                                <div class="bg-dark p-3 mb-3">
+                                    <p>{{ planet | json }}</p>
+                                </div>
                             </div>
                         </div>
                     </div>

@@ -23,4 +23,19 @@ export class VaisseauService {
   {
       return this.vaisseaux.filter(planet => planet.id === id)[0];
   }
+
+  addVaisseauService(_vaisseau: Vaisseau): void
+  {
+      this.vaisseaux.push(_vaisseau);
+  }
+
+  deleteVaisseauService(_vaisseau: Vaisseau)
+  {
+      this.vaisseaux = this.vaisseaux.filter(vaisseauToDelete => _vaisseau !== vaisseauToDelete);
+  }
+
+  edit(_vaisseau: Vaisseau)
+  {
+      this.vaisseaux.filter(vaisseauToUpdate => _vaisseau === vaisseauToUpdate)[0] = _vaisseau;
+  }
 }

@@ -8,6 +8,8 @@ import { Router } from '@angular/router';
 })
 export class MenuComponent implements OnInit {
     url:string;
+    date = new Date();
+
     constructor(private router: Router) {
 
     }

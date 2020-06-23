@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Vaisseau } from '../../models/vaisseau';
+import { VaisseauService } from '../../services/vaisseau.service';
+import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-add-vaisseau',
@@ -10,7 +13,7 @@ export class AddVaisseauComponent implements OnInit {
 
     newVaisseau = new Vaisseau();
 
-    constructor() { }
+    constructor(private vaisseauService: VaisseauService, private router: Router, private toastr: ToastrService) { }
 
     ngOnInit(): void {
     }
@@ -18,7 +21,12 @@ export class AddVaisseauComponent implements OnInit {
     addVaisseau() : void
     {
         this.newVaisseau.id = Math.floor(Math.random() * Math.floor(1000));
-        console.log(this.newVaisseau);
+
+        // console.log(this.newVaisseau);
+
+        this.vaisseauService.addVaisseauService(this.newVaisseau);
+        this.router.navigate(['/vehicules']);
+        this.toastr.success('Le vaisseau ' + this.newVaisseau.nom + " à été ajouté");
     }
 
 }

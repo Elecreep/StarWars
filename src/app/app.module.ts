@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -14,6 +15,10 @@ import { VaisseauDetailsComponent } from './components/vaisseau-details/vaisseau
 import { KonamiModule } from 'ngx-konami';
 import { AddPlanetComponent } from './components/add-planet/add-planet.component';
 import { AddVaisseauComponent } from './components/add-vaisseau/add-vaisseau.component';
+import { ToastrModule } from 'ngx-toastr';
+import { InitialePipe } from './pipes/initiale.pipe';
+import { EditPlanetComponent } from './components/edit-planet/edit-planet.component';
+import { EditVaisseauComponent } from './components/edit-vaisseau/edit-vaisseau.component';
 
 @NgModule({
   declarations: [
@@ -25,14 +30,19 @@ import { AddVaisseauComponent } from './components/add-vaisseau/add-vaisseau.com
     PlanetDetailsComponent,
     VaisseauDetailsComponent,
     AddPlanetComponent,
-    AddVaisseauComponent
+    AddVaisseauComponent,
+    InitialePipe,
+    EditPlanetComponent,
+    EditVaisseauComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     KonamiModule,
-    FormsModule
+    FormsModule,
+    ToastrModule.forRoot(),
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -4,6 +4,7 @@ body
 {
     background-image: url('./assets/images/background.webp');
     background-size: cover;
+    cursor: url('/assets/images/cursor.cur'), auto;
 }
 
 @font-face {

@@ -6,12 +6,14 @@
         <div class="row">
 
             <div class="col-md-12">
-                <div class="card text-light border-light" style="height: 30rem; background-color: #1e1d1d">
+                <div class="card text-light border-secondary" style="background-color: #1e1d1d">
+                    <p class="initiales starwarsfont">{{ vaisseau.nom | initiale }}</p>
                     <p class="m-3"><a routerLink="/vehicules" class="text-light">Vehicule</a> / {{ vaisseau.nom }}</p>
                     <div class="row">
                         <div class="col-6">
-                            <img class="img-top m-3" src="{{ vaisseau.image }}" alt="Card image cap">
-                            <a routerLink="/vehicules" class="btn btn-warning m-3">Voir d'autres vaisseaux</a>
+                            <img class="m-3 img-fluid" src="{{ vaisseau.image }}" alt="Card image cap">
+                            <a routerLink="/vehicules" class="btn btn-warning m-3">Voir d'autres vaisseaux</a><br>
+                            <a class="btn btn-danger m-3" (click)="deleteVaisseau(vaisseau)"><img src="assets/images/delete.png" height="25px" class="m-1" alt="">Démanteler ce vaisseau !</a>
                         </div>
                         <div class="col-6">
                             <div class="card-body">
@@ -21,6 +23,11 @@
                                 <p><b>Model</b> : {{ vaisseau.model }}</p>
                                 <p><b>Créateur</b> : {{ vaisseau.creator }}</p>
                                 <p><b>Nombre de passager</b> : {{ vaisseau.nbrPassager }}</p>
+                                <hr>
+                                <p><b>Information confidentiels</b> : </p>
+                                <div class="bg-dark p-3 mb-3">
+                                    <p>{{ vaisseau | json }}</p>
+                                </div>
                             </div>
                         </div>
                     </div>
