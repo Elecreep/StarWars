@@ -1,27 +1,22 @@
-# StarWars
+# Star Wars
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.7.
+Projet d'étude Star Wars pour la formation Human Booster.
 
-## Development server
+# Fonctionnalités
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Répertorie une liste de planète et de vaisseau de l'univers Star Wars.
+- http://localhost:4200/planets // Liste les planètes
+- http://localhost:4200/vehicules // Liste des vaisseaux
 
-## Code scaffolding
+Possibilité d'ajouter des élements.
+- http://localhost:4200/planets/add // Ajouter une planètes
+- http://localhost:4200/vehicules/add // Ajouter un vaisseau
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Possibilité d'éditer des élements.
+- http://localhost:4200/planets/edit/{id} // Modifier une planète
+- http://localhost:4200/vehicules/edit/{id} // Modifier un vaisseau
 
-## Build
+Nous pouvons visionner les détails des planètes / vaisseau et ainsi avoir accès à un tableau de bord pour modifier ou supprimer un élément.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+Petit easter egg disponible lorsqu'on entrer le konami code :)
 
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
