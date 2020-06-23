@@ -2,6 +2,8 @@
 
 Projet d'étude Star Wars pour la formation Human Booster.
 
+![alt text](https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/Star_Wars_Logo.svg/1200px-Star_Wars_Logo.svg.png)
+
 # Fonctionnalités
 
 Répertorie une liste de planète et de vaisseau de l'univers Star Wars.
