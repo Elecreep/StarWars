@@ -6,7 +6,9 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="card text-light border-light p-5" style="height: auto; background-color: #1e1d1d">
-
+                    <div *ngIf="isLoading" class="btn btn-warning btn-block m-3">
+                        <h3>Création de la planète en cours...</h3>
+                    </div>
                     <form #planetForm="ngForm" (ngSubmit)="addPlanet()">
 
 

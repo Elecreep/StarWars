@@ -10,18 +10,25 @@ import { LoggerService } from '../../services/logger.service';
 })
 export class PlanetsComponent implements OnInit {
 
-    planets: Planet[];
-    url: string;
-
     constructor(private planetService: PlanetService, private loggerService: LoggerService) {
 
     }
-    // PlanetService = Nom de la class de mon service
+
+    planets: Planet[];
+    errorHttp: boolean = false;
+    // planetsHTTP: Object;
 
     ngOnInit(): void {
-      this.planets = this.planetService.getAllPlanets();
-      this.loggerService.message();
-      //getAllPlanets = ma fonction poour récup l'objet
+        this.planetService.getAllPlanetHttp().subscribe(
+            data => {this.planets = data, this.planetService.planets = data},
+            error => {
+                this.errorHttp = true;
+                this.planets = this.planetService.getAllPlanets();
+            }
+        );
+
+      // this.planets = this.planetService.getAllPlanets();
+      // this.loggerService.message();
     }
 
 }

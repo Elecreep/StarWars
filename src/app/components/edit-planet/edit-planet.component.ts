@@ -12,20 +12,29 @@ import { PlanetService } from '../../services/planet.service';
 })
 export class EditPlanetComponent implements OnInit {
 
-planet: Planet;
+    planet: Planet;
+    isLoading: Boolean = true;
 
-  constructor(private activatedRoute : ActivatedRoute, private router: Router, private planetService: PlanetService, private toastr: ToastrService) { }
+    constructor(private activatedRoute : ActivatedRoute, private router: Router, private planetService: PlanetService, private toastr: ToastrService) { }
 
-  ngOnInit(): void {
-      const id = +this.activatedRoute.snapshot.paramMap.get('id');
-      this.planet = this.planetService.getPlanet(id);
-      console.log(this.planet);
+    ngOnInit(): void
+    {
+        const id = +this.activatedRoute.snapshot.paramMap.get('id');
+        this.planetService.getPlanetHttp(id).subscribe(data => {
+            this.planet = data;
+            this.isLoading = false;
+            console.log(this.planet);
+        });
+
   }
 
   editPlanet()
   {
-      this.planetService.edit(this.planet);
-      this.router.navigate(['/planets'])
-      this.toastr.success('La planète ' + this.planet.nom + " à été modifié");
+      // this.planetService.edit(this.planet);
+      this.planetService.editHttp(this.planet).subscribe(data => {
+          this.router.navigate(['/planets'])
+          this.toastr.success('La planète ' + this.planet.nom + " à été modifié");
+      });
+
   }
 }

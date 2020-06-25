@@ -1,5 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Planet } from '../models/planet';
+import { HttpClient } from '@angular/common/http';
+import { Observable, throwError } from 'rxjs';
+import { catchError, retry } from 'rxjs/internal/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -12,8 +15,10 @@ export class PlanetService {
         new Planet(3, "Naboo", "Naboo est la planète natale de Padmé Amidala et de Jar Jar Binks, ainsi que du sénateur", "../../assets/images/planets/naboo.jpg", "625 000 000" , "Société Gungan, Maison Royale de Naboo, République galactique"),
         new Planet(4, "Double nom", "Planete test pour tester les initiales", "../../assets/images/planets/test.jpg", "0" , "Human Booster")
     ];
+    errorReturn: boolean = false;
 
-    constructor() { }
+
+    constructor(private http: HttpClient) { }
 
     getAllPlanets(): Planet[]
     {
@@ -21,15 +26,43 @@ export class PlanetService {
         return this.planets;
     }
 
+    getAllPlanetHttp(): Observable<Planet[]>
+    {
+        return this.http.get<Planet[]>("http://localhost:3000/planet")
+        .pipe(
+            retry(1),
+            catchError(this.handleError)
+        );
+    }
+
     getPlanet(id: number): Planet
     {
-        // Retourne une planet en fonction de son ID. On peut aussi utilisé "find" à la place de "filter"
+        // Retourne une planet en fonction de son ID. On peut aussi utiliser "find" à la place de "filter"
         return this.planets.filter(planet => planet.id === id)[0];
+    }
+
+    getPlanetHttp(id: number): Observable<Planet>
+    {
+        // Retourne une planet en fonction de son ID. On peut aussi utiliser "find" à la place de "filter"
+        return this.http.get<Planet>("http://localhost:3000/planet/" + id)
+        .pipe(
+            retry(1),
+            catchError(this.handleError)
+        );
     }
 
     addPlanetService(_planet: Planet) : void
     {
         this.planets.push(_planet);
+    }
+
+    addPlanetServiceHttp(_planet: Planet)
+    {
+        return this.http.post<Planet[]>("http://localhost:3000/planet", _planet)
+        .pipe(
+            retry(1),
+            catchError(this.handleError)
+        );
     }
 
     deletePlanetService(_planet: Planet)
@@ -38,9 +71,40 @@ export class PlanetService {
         this.planets = this.planets.filter(planetToDelete => _planet !== planetToDelete);
     }
 
+    deletePlanetServiceHttp(_planet: Planet)
+    {
+        this.http.delete("http://localhost:3000/planet/" + _planet.id)
+        .subscribe(
+            error => {
+                console.log(error);
+            })
+    }
+
     edit(_planet: Planet) : void
     {
         this.planets.filter(planetToUpdate => _planet === planetToUpdate)[0] = _planet;
+    }
+
+    editHttp(_planet: Planet)
+    {
+        return this.http.put("http://localhost:3000/planet/" + _planet.id, _planet)
+        .pipe(
+            retry(1),
+            catchError(this.handleError)
+        );
+    }
+
+    // Les erreurs HTTP
+    handleError(error) {
+     let errorMessage = '';
+     if ( error.error instanceof ErrorEvent ) {
+     // Get client-side error
+         errorMessage = error.error.message;
+    } else {
+         // Get server-side error
+         errorMessage = `Error Code: ${error.status}\nMessage: ${error.message}`;
+    }
+     return throwError(errorMessage);
     }
 
 

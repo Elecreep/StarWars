@@ -14,17 +14,23 @@ export class PlanetDetailsComponent implements OnInit {
 
     id: number; // Va contenir le résultat du GET dans l'url
     planet: Planet;
+    idLoading: Boolean = true;
 
     constructor(private route: ActivatedRoute, private planetService: PlanetService,  private router: Router, private toastr: ToastrService) { }
 
     ngOnInit(): void {
       this.id = +this.route.snapshot.paramMap.get('id'); // Pour récupérer l'élément GET du l'URL
-      this.planet = this.planetService.getPlanet(this.id); // Pour retrouner une planet en utilisant son ID. Le fonction se trouve dans planeteService
+      // this.planet = this.planetService.getPlanet(this.id); // Pour retrouner une planet en utilisant son ID. Le fonction se trouve dans planeteService
+      this.planetService.getPlanetHttp(this.id).subscribe(data => {
+          this.idLoading = false;
+          this.planet = data
+      });
     }
 
     deletePlanet(_planet: Planet)
     {
-        this.planetService.deletePlanetService(_planet);
+        // this.planetService.deletePlanetService(_planet);
+        this.planetService.deletePlanetServiceHttp(_planet);
         this.router.navigate(['/planets']);
         this.toastr.error('La planète ' + this.planet.nom + " à été détruite ! BOUUUM !!");
     }

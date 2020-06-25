@@ -12,6 +12,7 @@ import { ToastrService } from 'ngx-toastr';
 export class AddVaisseauComponent implements OnInit {
 
     newVaisseau = new Vaisseau();
+    isLoading = true;
 
     constructor(private vaisseauService: VaisseauService, private router: Router, private toastr: ToastrService) { }
 
@@ -20,13 +21,14 @@ export class AddVaisseauComponent implements OnInit {
 
     addVaisseau() : void
     {
-        this.newVaisseau.id = Math.floor(Math.random() * Math.floor(1000));
-
         // console.log(this.newVaisseau);
+        this.isLoading = true;
+        this.vaisseauService.addVaisseauServiceHttp(this.newVaisseau).subscribe(data => {
+            this.isLoading = false;
+            this.router.navigate(['/vehicules']);
+            this.toastr.success('Le vaisseau ' + this.newVaisseau.nom + " à été ajouté");
+        });
 
-        this.vaisseauService.addVaisseauService(this.newVaisseau);
-        this.router.navigate(['/vehicules']);
-        this.toastr.success('Le vaisseau ' + this.newVaisseau.nom + " à été ajouté");
     }
 
 }

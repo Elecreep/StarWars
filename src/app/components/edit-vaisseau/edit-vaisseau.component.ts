@@ -12,19 +12,27 @@ import { VaisseauService } from '../../services/vaisseau.service';
 })
 export class EditVaisseauComponent implements OnInit {
 
-vaisseau: Vaisseau;
-  constructor(private activeRoute: ActivatedRoute, private vaisseauService : VaisseauService, private router: Router, private toastr: ToastrService) { }
+    vaisseau: Vaisseau;
+    isLoading: Boolean = true;
+
+    constructor(private activeRoute: ActivatedRoute, private vaisseauService : VaisseauService, private router: Router, private toastr: ToastrService) { }
 
     ngOnInit(): void
     {
-      const id = +this.activeRoute.snapshot.paramMap.get('id');
-      this.vaisseau = this.vaisseauService.getVaisseau(id);
+        const id = +this.activeRoute.snapshot.paramMap.get('id');
+        this.vaisseauService.getVaisseauHttp(id).subscribe(data => {
+            this.isLoading = false;
+            this.vaisseau = data;
+        });
     }
 
     editVaisseau(_vaisseau: Vaisseau): void
     {
-      this.vaisseauService.edit(this.vaisseau);
-      this.router.navigate(['/vehicules']);
-      this.toastr.success('Le vaisseau ' + this.vaisseau.nom + " à été modifié");
+      // this.vaisseauService.edit(this.vaisseau);
+      this.vaisseauService.editHttp(this.vaisseau).subscribe(data => {
+          this.router.navigate(['/vehicules']);
+          this.toastr.success('Le vaisseau ' + this.vaisseau.nom + " à été modifié");
+      });
+
     }
 }

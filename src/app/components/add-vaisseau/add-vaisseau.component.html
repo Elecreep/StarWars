@@ -4,14 +4,12 @@
 
     <h1 class="text-center starwarsfont text-warning">Ajouter un vaisseau</h1>
         <div class="row">
-
+            <div *ngIf="isLoading" class="btn btn-warning btn-block m-3">
+                <h3>Création du vaisseau en cours...</h3>
+            </div>
             <div class="col-md-12">
                 <div class="card text-light border-light p-5" style="height: auto; background-color: #1e1d1d">
-
                     <form #vaisseauForm="ngForm" (ngSubmit)="addVaisseau()">
-
-
-
 
                         <div class="form-row">
                             <div class="col">

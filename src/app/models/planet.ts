@@ -6,7 +6,7 @@ export class Planet {
     nbrHabitant: string;
     faction: string;
 
-    constructor(id: number = null, nom: string = null, description: string = null, image: string = null, nbrHabitant: string = null, faction: string = null)
+    constructor(id: number = null, nom: string = null, description: string = null, image: string = "../../assets/images/planets/test.jpg", nbrHabitant: string = null, faction: string = null)
     {
         this.id = id;
         this.nom = nom;

@@ -1,0 +1,74 @@
+{
+  "planet": [
+    {
+      "id": 1,
+      "nom": "Bespin",
+      "description": "La planète abrite la Cité des Nuages, qui flotte dans les airs grâce à un système anti-gravité.",
+      "image": "../../assets/images/planets/bespin.jpg",
+      "nbrHabitant": "6 000 000",
+      "faction": "Empire galactique"
+    },
+    {
+      "nom": "Coruscant",
+      "description": "Capitale de la République galactique puis de l'Empire galactique.",
+      "image": "../../assets/images/planets/coruscant.jpg",
+      "nbrHabitant": "998 374 milliards",
+      "faction": "Ordre Jedi, République galactique, Empire galactique",
+      "id": 2
+    },
+    {
+      "nom": "Naboo",
+      "description": "Naboo kdsfhsdgh est la planète natale de Padmé Amidala et de Jar Jar Binks, ainsi que du sénateur",
+      "image": "../../assets/images/planets/naboo.jpg",
+      "nbrHabitant": "625 000 000",
+      "faction": "Société Gungan, Maison Royale de Naboo, République galactique",
+      "id": 3
+    },
+    {
+      "nom": "Double nom",
+      "description": "Planete test pour tester les initiales",
+      "image": "../../assets/images/planets/test.jpg",
+      "nbrHabitant": "0",
+      "faction": "Human Booster",
+      "id": 4
+    }
+  ],
+  "vaisseau": [
+    {
+      "id": 1,
+      "nom": "Accuser Yeah BOI",
+      "description": "L'Accuser était un destroyer Stellaire Impérial ayant participé à la Bataille d'Endor.",
+      "image": "../../assets/images/vaisseaux/accuser.jpg",
+      "model": "Imperial I-class Star Destroyer",
+      "creator": "Kuat Drive Yards",
+      "nbrPassager": 1000
+    },
+    {
+      "id": 2,
+      "nom": "Aelena",
+      "description": "L’Aelena était l’une des Frégates d’Assaut Mk II appartenant à l’Alliance Rebelle. J'ai passé plus de temps à faire ces recherches / le design qu'à vraiment faire le TP T_T",
+      "image": "../../assets/images/vaisseaux/aelena.jpg",
+      "model": "Assault Frigate Mark II",
+      "creator": "Rendili StarDrive",
+      "nbrPassager": 400
+    },
+    {
+      "id": 3,
+      "nom": "Ark Angel test",
+      "description": "L'Ark Angel était le vaisseau de l'archéologue Aphra, qui fut détruit lors de la bataille de Vrogas Vas puis réparé par Krrsantan pour devenir...",
+      "image": "../../assets/images/vaisseaux/ark_angel.jpg",
+      "model": "Bellicose-class HK heavy-duty lifter",
+      "creator": "Hoersch-Kessel Drive, Inc.",
+      "nbrPassager": 400
+    },
+    {
+      "id": 4,
+      "nom": "zae",
+      "description": "aze",
+      "image": "../../assets/images/vaisseaux/vaisseauTest.jpg",
+      "model": "aze",
+      "creator": "aze",
+      "nbrPassager": "aze"
+    }
+  ]
+}

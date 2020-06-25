@@ -1,42 +1,44 @@
 <main role="main">
 
     <div class="container">
+    <div *ngIf="!isLoading">
+        <h1 class="text-center starwarsfont text-warning">{{ vaisseau.nom }}</h1>
+            <div class="row">
 
-    <h1 class="text-center starwarsfont text-warning">{{ vaisseau.nom }}</h1>
-        <div class="row">
-
-            <div class="col-md-12">
-                <div class="card text-light border-secondary" style="background-color: #1e1d1d">
-                    <p class="initiales starwarsfont">{{ vaisseau.nom | initiale }}</p>
-                    <p class="m-3"><a routerLink="/vehicules" class="text-light">Vehicule</a> / {{ vaisseau.nom }}</p>
-                    <div class="row">
-                        <div class="col-6">
-                            <img class="m-3 img-fluid" src="{{ vaisseau.image }}" alt="Card image cap">
-                            <a routerLink="/vehicules" class="btn btn-warning m-3">Voir d'autres vaisseaux</a><br>
-                            <a class="btn btn-danger m-3" (click)="deleteVaisseau(vaisseau)"><img src="assets/images/delete.png" height="25px" class="m-1" alt="">Démanteler ce vaisseau !</a>
-                            <a [routerLink]="['/vehicules/edit', vaisseau.id]" class="btn btn-success m-3">Editer ce vaisseau</a>
-                        </div>
-                        <div class="col-6">
-                            <div class="card-body">
-                                <h5 class="card-title">{{ vaisseau.nom }}</h5>
-                                <p class="card-text">{{ vaisseau.description }}</p>
-                                <hr>
-                                <p><b>Model</b> : {{ vaisseau.model }}</p>
-                                <p><b>Créateur</b> : {{ vaisseau.creator }}</p>
-                                <p><b>Nombre de passager</b> : {{ vaisseau.nbrPassager }}</p>
-                                <hr>
-                                <p><b>Information confidentiels</b> : </p>
-                                <div class="bg-dark p-3 mb-3">
-                                    <p>{{ vaisseau | json }}</p>
+                <div class="col-md-12">
+                    <div class="card text-light border-secondary" style="background-color: #1e1d1d">
+                        <p class="initiales starwarsfont">{{ vaisseau.nom | initiale }}</p>
+                        <p class="m-3"><a routerLink="/vehicules" class="text-light">Vehicule</a> / {{ vaisseau.nom }}</p>
+                        <div class="row">
+                            <div class="col-6">
+                                <img class="m-3 img-fluid" src="{{ vaisseau.image }}" alt="Card image cap">
+                                <a routerLink="/vehicules" class="btn btn-warning m-3">Voir d'autres vaisseaux</a><br>
+                                <a class="btn btn-danger m-3" (click)="deleteVaisseau(vaisseau)"><img src="assets/images/delete.png" height="25px" class="m-1" alt="">Démanteler ce vaisseau !</a>
+                                <a [routerLink]="['/vehicules/edit', vaisseau.id]" class="btn btn-success m-3">Editer ce vaisseau</a>
+                            </div>
+                            <div class="col-6">
+                                <div class="card-body">
+                                    <h5 class="card-title">{{ vaisseau.nom }}</h5>
+                                    <p class="card-text">{{ vaisseau.description }}</p>
+                                    <hr>
+                                    <p><b>Model</b> : {{ vaisseau.model }}</p>
+                                    <p><b>Créateur</b> : {{ vaisseau.creator }}</p>
+                                    <p><b>Nombre de passager</b> : {{ vaisseau.nbrPassager }}</p>
+                                    <hr>
+                                    <p><b>Information confidentiels</b> : </p>
+                                    <div class="bg-dark p-3 mb-3">
+                                        <p>{{ vaisseau | json }}</p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
+
                     </div>
-
                 </div>
-            </div>
 
-        </div>
+            </div>
+    </div>
+
 
     </div>
 

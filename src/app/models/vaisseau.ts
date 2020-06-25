@@ -7,7 +7,7 @@ export class Vaisseau {
     creator: string;
     nbrPassager: number;
 
-    constructor(id: number = null, nom: string = null, description:string = null, image:string = null, model: string = null, creator: string = null, nbrPassager: number = null)
+    constructor(id: number = null, nom: string = null, description:string = null, image:string = "../../assets/images/vaisseaux/vaisseauTest.jpg", model: string = null, creator: string = null, nbrPassager: number = null)
     {
         this.id = id;
         this.nom = nom;

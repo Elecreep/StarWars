@@ -15,21 +15,24 @@ export class AddPlanetComponent implements OnInit {
 
     newPlanet = new Planet();
     selectedFile: File = null;
+    isLoading: boolean = false;
 
     constructor(private planetService: PlanetService, private router: Router, private http: HttpClient, private toastr: ToastrService) { }
 
-    ngOnInit(): void {
+    ngOnInit(): void
+    {
     }
 
     addPlanet() : void
     {
-        this.onUploadImage(); // Pour upload une image
-        this.newPlanet.id = Math.floor(Math.random() * Math.floor(1000));
-        this.newPlanet.image = "../../assets/images/planets/test.jpg";
-        // console.log(this.newPlanet);
-        this.planetService.addPlanetService(this.newPlanet);
-        this.router.navigate(['/planets'])
-        this.toastr.success('La planète ' + this.newPlanet.nom + " à été ajouté");
+        // this.onUploadImage(); // Pour upload une image
+        this.isLoading = true;
+        this.planetService.addPlanetServiceHttp(this.newPlanet).subscribe(data => {
+                this.isLoading = false;
+                this.router.navigate(['/planets']);
+                this.toastr.success('La planète ' + this.newPlanet.nom + " à été ajouté");
+            }
+        );
     }
 
     onFileChanged(event)

@@ -3,69 +3,72 @@
     <div class="container">
 
     <h1 class="text-center starwarsfont text-warning">Modifier une planète</h1>
-        <div class="row">
 
-            <div class="col-md-12">
-                <div class="card text-light border-light p-5" style="height: auto; background-color: #1e1d1d">
+        <div *ngIf="!isLoading">
+            <div class="row">
 
-                    <form #planetForm="ngForm" (ngSubmit)="editPlanet()">
+                <div class="col-md-12">
+                    <div class="card text-light border-light p-5" style="height: auto; background-color: #1e1d1d">
+
+                        <form #planetForm="ngForm" (ngSubmit)="editPlanet()">
 
 
-                        <div class="form-group">
-                            <label>Nom de la planète</label>
-                            <input type="text" class="form-control" [ngClass]="{'is-invalid': !nom.valid}" name="nom" required [(ngModel)]="planet.nom" #nom="ngModel">
-                            <div class="invalid-feedback">Veuillez entrez un nom</div>
-                        </div>
+                            <div class="form-group">
+                                <label>Nom de la planète</label>
+                                <input type="text" class="form-control" [ngClass]="{'is-invalid': !nom.valid}" name="nom" required [(ngModel)]="planet.nom" #nom="ngModel">
+                                <div class="invalid-feedback">Veuillez entrez un nom</div>
+                            </div>
 
-                        <div class="form-group ">
-                            <label>Description</label>
-                            <textarea class="form-control" [ngClass]="{'is-invalid': !description.valid}" name="description" rows="8" cols="80" required [(ngModel)]="planet.description" #description="ngModel"></textarea>
-                            <div class="invalid-feedback">Veuillez entrez une description</div>
-                        </div>
+                            <div class="form-group ">
+                                <label>Description</label>
+                                <textarea class="form-control" [ngClass]="{'is-invalid': !description.valid}" name="description" rows="8" cols="80" required [(ngModel)]="planet.description" #description="ngModel"></textarea>
+                                <div class="invalid-feedback">Veuillez entrez une description</div>
+                            </div>
 
-                        <!-- Ajouter ici IMAGE -->
-                            <div class="file-upload">
-                              <button class="file-upload-btn" type="button">Ajouter une image</button>
+                            <!-- Ajouter ici IMAGE -->
+                                <div class="file-upload">
+                                  <button class="file-upload-btn" type="button">Ajouter une image</button>
 
-                              <div class="image-upload-wrap">
-                                  <!-- Mes Images -->
-                                <input class="file-upload-input" type='file' accept="image/*" />
-                                <div class="drag-text">
-                                  <h3>Glissez-déposez une image</h3>
+                                  <div class="image-upload-wrap">
+                                      <!-- Mes Images -->
+                                    <input class="file-upload-input" type='file' accept="image/*" />
+                                    <div class="drag-text">
+                                      <h3>Glissez-déposez une image</h3>
+                                    </div>
+                                  </div>
+                                  <div class="file-upload-content">
+                                    <img class="file-upload-image" src="#" alt="your image" />
+                                    <div class="image-title-wrap">
+                                      <button type="button" onclick="removeUpload()" class="remove-image">Supprimer <span class="image-title"></span></button>
+                                    </div>
+                                  </div>
                                 </div>
-                              </div>
-                              <div class="file-upload-content">
-                                <img class="file-upload-image" src="#" alt="your image" />
-                                <div class="image-title-wrap">
-                                  <button type="button" onclick="removeUpload()" class="remove-image">Supprimer <span class="image-title"></span></button>
+
+                            <div class="form-row">
+                                <div class="col">
+                                    <label>Nombre d'habitant</label>
+                                    <input type="text" class="form-control" [ngClass]="{'is-invalid': !nbrHabitant.valid}" name="nbrHabitant" required [(ngModel)]="planet.nbrHabitant" #nbrHabitant="ngModel">
+                                    <div class="invalid-feedback">Veuillez entrez un nombre d'habitant</div>
                                 </div>
-                              </div>
+                                <div class="col">
+                                    <label>Faction</label>
+                                    <input type="text" class="form-control" [ngClass]="{'is-invalid': !faction.valid}" name="faction" required [(ngModel)]="planet.faction" #faction="ngModel" placeholder="Veuillez sélectionner une faction">
+                                    <div class="invalid-feedback">Veuillez sélectionner une faction</div>
+                                </div>
                             </div>
 
-                        <div class="form-row">
-                            <div class="col">
-                                <label>Nombre d'habitant</label>
-                                <input type="text" class="form-control" [ngClass]="{'is-invalid': !nbrHabitant.valid}" name="nbrHabitant" required [(ngModel)]="planet.nbrHabitant" #nbrHabitant="ngModel">
-                                <div class="invalid-feedback">Veuillez entrez un nombre d'habitant</div>
-                            </div>
-                            <div class="col">
-                                <label>Faction</label>
-                                <input type="text" class="form-control" [ngClass]="{'is-invalid': !faction.valid}" name="faction" required [(ngModel)]="planet.faction" #faction="ngModel" placeholder="Veuillez sélectionner une faction">
-                                <div class="invalid-feedback">Veuillez sélectionner une faction</div>
-                            </div>
-                        </div>
+                            <input [disabled]="!planetForm.valid" type="submit" class="btn btn-warning mt-3 btn-block" value="Modifier">
 
-                        <input [disabled]="!planetForm.valid" type="submit" class="btn btn-warning mt-3 btn-block" value="Modifier">
+                        </form>
 
-                    </form>
-
-                    <!-- Pour afficher une message d'erreur :
-                    <div [hidden]="monElement.valid">
-                        <p>monElement doit être rempli !</p>
-                    </div> -->
+                        <!-- Pour afficher une message d'erreur :
+                        <div [hidden]="monElement.valid">
+                            <p>monElement doit être rempli !</p>
+                        </div> -->
+                    </div>
                 </div>
-            </div>
 
+            </div>
         </div>
 
     </div>

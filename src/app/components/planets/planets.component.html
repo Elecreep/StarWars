@@ -5,6 +5,9 @@
     <h1 class="text-center starwarsfont text-warning">Mes Planètes</h1>
         <div class="row">
             <a [routerLink]="['/planets/add']" class="btn btn-warning btn-block m-3"><h3>Ajouter une planète</h3></a>
+            <div *ngIf="errorHttp" class="btn btn-danger btn-block m-3">
+                <h3>Connexion au serveur impossible. Les modifications ne seront pas enregistrées !</h3>
+            </div>
             <div class="col-md-4 mt-5" *ngFor="let element of planets">
                 <div class="card text-light border-light" style="height: 33rem; background-color: #1e1d1d">
                     <img class="card-img-top" src="{{ element.image }}" alt="Image Planet">
